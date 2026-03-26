@@ -1,0 +1,34 @@
+{
+  "name": "Traffic Light Control System",
+  "version": "1.0",
+  "components": [
+    { "type": "INPUT", "id": "T1", "x": 100, "y": 100, "label": "T1" },
+    { "type": "INPUT", "id": "T2", "x": 100, "y": 200, "label": "T2" },
+
+    { "type": "NOT", "id": "N1", "x": 250, "y": 200 },
+    { "type": "NOT", "id": "N2", "x": 250, "y": 100 },
+
+    { "type": "AND", "id": "A1", "x": 400, "y": 100 },
+    { "type": "AND", "id": "A2", "x": 400, "y": 200 },
+
+    { "type": "OUTPUT", "id": "R1G", "x": 600, "y": 100, "label": "R1 Green" },
+    { "type": "OUTPUT", "id": "R1R", "x": 600, "y": 150, "label": "R1 Red" },
+    { "type": "OUTPUT", "id": "R2G", "x": 600, "y": 200, "label": "R2 Green" },
+    { "type": "OUTPUT", "id": "R2R", "x": 600, "y": 250, "label": "R2 Red" }
+  ],
+  "connections": [
+    { "from": "T1", "to": "A1" },
+    { "from": "T2", "to": "N1" },
+    { "from": "N1", "to": "A1" },
+
+    { "from": "T2", "to": "A2" },
+    { "from": "T1", "to": "N2" },
+    { "from": "N2", "to": "A2" },
+
+    { "from": "A1", "to": "R1G" },
+    { "from": "A2", "to": "R2G" },
+
+    { "from": "A1", "to": "R2R" },
+    { "from": "A2", "to": "R1R" }
+  ]
+}
